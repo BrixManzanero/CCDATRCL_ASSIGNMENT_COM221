@@ -1,0 +1,96 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+class LinkedList:
+    
+    def __init__(self):
+        self.head = None
+    
+    def traverse(self, node):
+        while node: 
+            print(node.data, end=" -> ")
+            node = node.next
+            
+class DoublyLinkedList: 
+    
+    def __init__(self):
+        self.head = None
+    
+    def traverse(self, node):
+        while node: 
+            print(node.data, end=" -> ")
+            node = node.next
+     
+class CircularLinkedList:
+
+    def __init__(self):
+        self.head = None
+
+    def traverse(self, node):
+
+        head = node
+
+        while node:
+            print(node.data, end=" -> ")
+            node = node.next
+            
+            # Break to prevent infinite loop
+            if node == head:
+                break
+Dianna = LinkedList()
+Dianna.head = Node("Dianna")
+Joyce = Node("Joyce")
+Cristian = Node("Cristian")
+Munoz = Node("Munoz")
+Uriel = Node("Urieo")
+Brix = Node("Brix")
+Dianna.head.next = Joyce 
+Joyce.next = Cristian
+Cristian.next = Munoz
+Munoz.next = Uriel
+Uriel.next = Brix
+Dianna.traverse(Dianna.head)
+Dianna = DoublyLinkedList()
+    
+Dianna.head = Node("Dianna")
+Joyce = Node("Joyce")
+Cristian = Node("Cristian")
+Munoz = Node("Munoz")
+Uriel = Node("Uriel")
+Brix = Node("Brix")
+
+Dianna.head.prev = None
+Dianna.head.next = Joyce
+
+Joyce.prev = Dianna.head
+Joyce.next = Cristian
+
+Cristian.prev = Joyce 
+Cristian.next = Munoz
+
+Munoz.prev = Cristian
+Munoz.next = Uriel
+
+Uriel.prev = Munoz
+Uriel.next = Brix 
+
+Brix.prev = Uriel
+Brix.next = None
+
+Dianna.traverse(Dianna.head)
+Dianna = CircularLinkedList()
+Dianna.head = Node("Dianna")
+Joyce = Node("Joyce")
+Cristian = Node("Cristian")
+Munoz = Node("Munoz")
+Uriel = Node("Uriel")
+Brix = Node("Brix")
+
+Dianna.head.next = Joyce
+Joyce.next = Cristian
+Cristian.next = Munoz
+Munoz.next = Uriel 
+Uriel.next = Brix
+Brix.next = Dianna.head
+Dianna.traverse(Dianna.head)
